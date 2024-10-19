@@ -1,0 +1,362 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=0.5 cm,
+    bottom=0.5 cm,
+    left=1.5 cm,
+    right=1.5 cm,
+    footskip=1.0 cm,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Bharti Saxena Resume},
+    pdfauthor={Bharti Saxena},
+    pdfcreator={Bharti Saxena},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+\usepackage{xcolor}
+\definecolor{highlightColor}{HTML}{0066ff}
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\else
+    \usepackage{charter}
+\fi
+
+% Some settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    -1pt
+}{
+    0.3 cm
+}{
+    0.2 cm
+}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+\newcommand{\placelastupdatedtext}{%
+  \AddToShipoutPictureFG*{%
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Last updated in August 2024}\hspace{\widthof{Last updated in August 2024}}
+    }}}%
+  }%
+}
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    \begin{header}
+        \fontsize{25 pt}{25 pt}\selectfont \textcolor{highlightColor}{Bharti Saxena}
+
+        \vspace{1.5 pt}
+
+        \normalsize
+        \mbox{\hrefWithoutArrow{mailto:bhartisaxena2002@gmail.com}{bhartisaxena2002@gmail.com}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{tel:+918770800663}{+91 877 080 0663}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://t.me/bsaxena}{Telegram}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://linkedin.com/in/bharti-saxena-30a880246}{Linkedin}}%
+        \kern 5.0 pt%
+         \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://github.com/saxenabharti}{Github}}%
+        \kern 5.0 pt%
+         
+    \end{header}
+
+    \vspace{5 pt - 0.3 cm}
+    
+
+
+
+
+    \section{\textcolor{highlightColor}{SKILLS}}
+
+        \begin{onecolentry}
+            \begin{highlights}
+                \item \textbf{Programming Languages:} Java, Javascript, C++, C, Advance Java, JDBC 
+                \item \textbf{Web Development/Databases:} HTML5, CSS, JSON, BootStrap, MySQL, Oracle, SQL, React.js
+                \item \textbf{Tools/IDEs:} Visual Studio Code, NetBeans, CodeBlocks, IntelliJ IDEA
+                \item \textbf{Technical Proficiencies:} Data Structures and Algorithms (DSA), Object-Oriented Programming (OOPs), Database Management Systems (DBMS)
+                \item \textbf{Soft Skills:} Problem Analysis, Team Collaboration, Clear Communication, Precision, Initiative and Guidance
+                \item \textbf{Other Skills:} Canvas, Dynamics 365, MS Power BI, MS Share Point, Power Automate, Git and GitHub
+            \end{highlights}
+        \end{onecolentry}
+
+    \section{\textcolor{highlightColor}{EXPERIENCE}}
+
+        \begin{twocolentry}{
+            Aug 2023 – Jan 2024
+        }
+            \textbf{Intern Developer}, A2Infotech Pvt. Ltd. \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Developed and maintained web applications with front-end and back-end focus, collaborated on feature design, and ensured code quality through unit and integration tests.
+                \item Learn how to fetch data using APIs (e.g., Fetch API, Axios) and how to manipulate and display JSON data on the frontend. .
+            \end{highlights}
+        \end{onecolentry}
+
+        \begin{twocolentry}{
+            Feb 2023 – Jul 2023
+        }
+            \textbf{Java Intern}, A2Infotech Pvt. Ltd. \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Applied OOPs principles to design effective software solutions and developed responsive, user-friendly UIs. Integrated database functionality using JDBC.
+                \item Learn and apply development best practices, including version control (Git), continuous integration, and deployment strategies.
+            \end{highlights}
+        \end{onecolentry}
+
+        
+
+    \section{\textcolor{highlightColor}{PROJECTS}}
+
+        \begin{twocolentry}{
+            \href{https://github.com/saxenabharti/Codepen-clone}{\textbf{\textcolor{highlightColor}{Link}}}
+        }
+            \textbf{Codepen Clone | Frontend Code Editor}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item \textbf{Project Description:}  Built with HTML, CSS, JavaScript, and React, this live web
+code editor supports HTML, CSS, and JavaScript editing.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+        \begin{twocolentry}{
+            \href{https://github.com/saxenabharti/YumiExpress}{\textbf{\textcolor{highlightColor}{Link}}}
+        }
+            \textbf{YumExpress | Restaurant App}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item \textbf{Project Description:}  Developed a desktop Application using JSE with a GUI implement via Applet, AWT and Swing.
+
+                \item Integrated Mail for email functionality, Spoonacular API for recipe and restaurant data, and Password Encryption API for secure user authentication. Developed a SQL-based database.
+
+            \end{highlights}
+        \end{onecolentry}
+
+
+        \vspace{0.2 cm}
+        
+        \begin{twocolentry}{
+           \href{https://github.com/saxenabharti/SanjeevaniApplication}{\textbf{\textcolor{highlightColor}{Link}}}
+        }
+            \textbf{Sanjeevani App | Hospital Activity Tracking App}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                 \item \textbf{Project Description:}  Developed a desktop Application using Java SE with a GUI
+                 implement via Applet, AWT, and Swing.
+
+              \item  2factor.in for OTP verification, BulkSMS for SMS functionality, and a Password Encryption API for secure password management.
+              \item Developed a SQL-based database for data management and application backend.
+
+            \end{highlights}
+        \end{onecolentry}
+
+   
+
+    \section{\textcolor{highlightColor}{CERTIFICATIONS}}
+
+        \begin{twocolentry} {}
+            \textbf{C programing (Sharma Computer Academy) -:} 2021
+            \end{twocolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry} {}
+            \textbf{Cpp programing (Udemy) -:} 2022
+            \end{twocolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry} {}
+            \textbf{Cryptography and Cyber Security workshop -:} 2022
+            \end{twocolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry} {}
+            \textbf{DSA Certification (Sharma Computer Academy) -:} 2023
+            \end{twocolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry} {}
+             \textbf{45 days training in Core Java (JSE) (Sharma Computer Academy -:}  2023
+        \end{twocolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry} {}
+             \textbf{MERN Workshop (Shaksham Digital Technology) -:}  2024
+        \end{twocolentry}
+           
+        \vspace{0.2 cm}
+        \section{\textcolor{highlightColor}{EDUCATION}}
+        
+        \begin{twocolentry}{
+        
+            Jul 2020 – Jun 2024
+        }
+            \textbf{RKDF University}, Bachelor of Engineering in Computer Science\end{twocolentry}
+
+        \vspace{0.05 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item CGPA: 8.12
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.1 cm}
+
+        \begin{twocolentry}{
+        
+            Jul 2019 – Jun 2020
+        }
+            \textbf{MP Board}, PCM Stream - 12th Class\end{twocolentry}
+
+        \vspace{0.05 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item CGPA: 8.72
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.1 cm}
+
+        \begin{twocolentry}{
+        
+            Jul 2017 – Jun 2018
+        }
+          
+
+        
+
+         
+\end{document}
